@@ -8,3 +8,77 @@ body {
   margin: auto;
   padding: 1em;
 }
+
+#controls{
+  display:flex;
+  gap:1em;
+  align-items:baseline;  
+  padding-bottom:0.5rem;
+  border-bottom:1px solid #eee;
+}
+
+#time-filter{
+  margin-left:auto;
+  display:flex;
+  gap:0.5em;
+  align-items:center;
+  font-family:system-ui, sans-serif;
+}
+
+#time-display,
+#anytime{
+  display:block;
+  min-width:4ch;         
+}
+
+#anytime{
+  color:#777;
+  font-style:italic;
+}
+
+#time-slider{
+  width:220px;
+}
+
+:root {
+  --color-departures: steelblue;  
+  --color-arrivals:  darkorange;  
+
+}
+
+.legend {
+  display: flex;           
+  gap: 1em;                 
+  margin-block: 1em;       
+  align-items: center;     
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.legend > div {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.legend > div::before {
+  content: "";
+  display:inline-block;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  --pct: calc(var(--departure-ratio) * 100%);
+  background: color-mix(
+    in oklch,
+    var(--color-departures) var(--pct),
+    var(--color-arrivals) calc(100% - var(--pct))
+  );
+}
+
+.legend > div:nth-child(1)::before {
+  background: var(--color-departures);
+}
+.legend > div:nth-child(3)::before {
+  background: var(--color-arrivals);
+}
