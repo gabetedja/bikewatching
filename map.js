@@ -96,7 +96,7 @@ map.addLayer({
   type: 'line',
   source: 'cambridge_route',
   paint: {
-    'line-color': 'purple',
+    'line-color': 'red',
     'line-width': 3,
     'line-opacity': 0.4,
   },
